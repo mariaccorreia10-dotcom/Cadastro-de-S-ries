@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Séries</title>
+</head>
+<body>
+    <h1>Cadastro de Séries</h1>
+
+    <form> 
+        Nome da série:
+         <input type="text" id="nome" value="Anne with an E"><br><br>
+          
+         Streaming:
+         <input type="text" id="streaming" value="Netflix"><br><br>
+
+         Autor ou criador:
+         <input type="text" id="autor" value="Moira Walley-Beckett"><br><br>
+
+         Ano de criação:
+         <input type="number" id="ano" value="2017"><br><br>
+
+         Três principais personagens:
+          <input type="text" id="personagens" value="Anne, Gilbert e Diana"><br><br>
+
+          <button type="button" onclick="salvar()">Salvar</button>
+    <button type="button" onclick="limpar()">Limpar</button>
+    <button type="button" onclick="editar()">Editar</button>
+    <button type="button" onclick="consultar()">Consultar</button>
+</form>
+
+<p id="mensagem"></p>
+<script>
+function salvar() {
+    localStorage.setItem("nome", document.getElementById("nome").value);
+    localStorage.setItem("streaming", document.getElementById("streaming").value);
+    localStorage.setItem("autor", document.getElementById("autor").value);
+    localStorage.setItem("temporadas", document.getElementById("temporadas").value);
+    localStorage.setItem("ano", document.getElementById("ano").value);
+    localStorage.setItem("personagens", document.getElementById("personagens").value);
+
+    document.getElementById("mensagem").innerHTML = "Série salva com sucesso!";
+}
+
+function limpar() {
+    document.querySelector("form").reset();
+    document.getElementById("mensagem").innerHTML = "";
+}
+
+function consultar() {
+    document.getElementById("nome").value = localStorage.getItem("nome") || "";
+    document.getElementById("streaming").value = localStorage.getItem("streaming") || "";
+    document.getElementById("autor").value = localStorage.getItem("autor") || "";
+    document.getElementById("temporadas").value = localStorage.getItem("temporadas") || "";
+    document.getElementById("ano").value = localStorage.getItem("ano") || "";
+    document.getElementById("personagens").value = localStorage.getItem("personagens") || "";
+
+    document.getElementById("mensagem").innerHTML = "Consulta realizada!";
+}
+
+
+function editar() {
+    salvar();
+    document.getElementById("mensagem").innerHTML = "Série editada com sucesso!";
+}
+</script>
+        
+</body>
+</html>
