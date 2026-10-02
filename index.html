@@ -1,70 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Séries</title>
+    <title>Anne with an E</title>
+
+    <style>
+        body {
+            background-color: #f5eee1;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .caixa {
+            background-color: white;
+            width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #8b6f47;
+        }
+
+        h1 {
+            color: #8b4f3f;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #8b6f47;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #6d5235;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Cadastro de Séries</h1>
 
-    <form> 
-        Nome da série:
-         <input type="text" id="nome" value="Anne with an E"><br><br>
-          
-         Streaming:
-         <input type="text" id="streaming" value="Netflix"><br><br>
+<div class="caixa">
 
-         Autor ou criador:
-         <input type="text" id="autor" value="Moira Walley-Beckett"><br><br>
+<h1>🌿 Cadastro de Séries</h1>
 
-         Ano de criação:
-         <input type="number" id="ano" value="2017"><br><br>
+<input id="nome" placeholder="Nome da série" value="Anne with an E">
+<input id="streaming" placeholder="Streaming" value="Netflix">
+<input id="autor" placeholder="Autor ou criador" value="Moira Walley-Beckett">
+<input id="temporadas" type="number" placeholder="Temporadas" value="3">
+<input id="ano" type="number" placeholder="Ano de criação" value="2017">
+<input id="personagens" placeholder="3 principais personagens"
+value="Anne, Gilbert e Diana">
 
-         Três principais personagens:
-          <input type="text" id="personagens" value="Anne, Gilbert e Diana"><br><br>
+<br>
 
-          <button type="button" onclick="salvar()">Salvar</button>
-    <button type="button" onclick="limpar()">Limpar</button>
-    <button type="button" onclick="editar()">Editar</button>
-    <button type="button" onclick="consultar()">Consultar</button>
-</form>
+<button onclick="salvar()">Salvar</button>
+<button onclick="limpar()">Limpar</button>
+<button onclick="editar()">Editar</button>
+<button onclick="consultar()">Consultar</button>
 
-<p id="mensagem"></p>
+<p id="msg"></p>
+
+</div>
+
 <script>
+
 function salvar() {
-    localStorage.setItem("nome", document.getElementById("nome").value);
+    localStorage.setItem("serie", document.getElementById("nome").value);
     localStorage.setItem("streaming", document.getElementById("streaming").value);
     localStorage.setItem("autor", document.getElementById("autor").value);
     localStorage.setItem("temporadas", document.getElementById("temporadas").value);
     localStorage.setItem("ano", document.getElementById("ano").value);
     localStorage.setItem("personagens", document.getElementById("personagens").value);
 
-    document.getElementById("mensagem").innerHTML = "Série salva com sucesso!";
+    document.getElementById("msg").innerHTML = "Série salva! 🌸";
 }
 
 function limpar() {
-    document.querySelector("form").reset();
-    document.getElementById("mensagem").innerHTML = "";
+    document.querySelectorAll("input").forEach(x => x.value = "");
+    document.getElementById("msg").innerHTML = "Campos limpos!";
 }
 
 function consultar() {
-    document.getElementById("nome").value = localStorage.getItem("nome") || "";
+    document.getElementById("nome").value = localStorage.getItem("serie") || "";
     document.getElementById("streaming").value = localStorage.getItem("streaming") || "";
     document.getElementById("autor").value = localStorage.getItem("autor") || "";
     document.getElementById("temporadas").value = localStorage.getItem("temporadas") || "";
     document.getElementById("ano").value = localStorage.getItem("ano") || "";
     document.getElementById("personagens").value = localStorage.getItem("personagens") || "";
-
-    document.getElementById("mensagem").innerHTML = "Consulta realizada!";
 }
-
 
 function editar() {
     salvar();
-    document.getElementById("mensagem").innerHTML = "Série editada com sucesso!";
+    document.getElementById("msg").innerHTML = "Série editada! 🌿";
 }
+
 </script>
-        
+
 </body>
 </html>
