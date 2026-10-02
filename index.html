@@ -1,109 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anne with an E</title>
-
-    <style>
-        body {
-            background-color: #f5eee1;
-            font-family: Arial;
-            text-align: center;
-        }
-
-        .caixa {
-            background-color: white;
-            width: 400px;
-            margin: 40px auto;
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #8b6f47;
-        }
-
-        h1 {
-            color: #8b4f3f;
-        }
-
-        input {
-            width: 90%;
-            padding: 8px;
-            margin: 5px;
-            border: 1px solid #aaa;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 8px 12px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            background-color: #8b6f47;
-            color: white;
-        }
-
-        button:hover {
-            background-color: #6d5235;
-        }
-    </style>
+    <title>Cadastro de Séries</title>
 </head>
 
 <body>
 
-<div class="caixa">
+<h1>Cadastro de Séries</h1>
 
-<h1>🌿 Cadastro de Séries</h1>
+Nome da série:<br>
+<input type="text" value="Anne with an E"><br><br>
 
-<input id="nome" placeholder="Nome da série" value="Anne with an E">
-<input id="streaming" placeholder="Streaming" value="Netflix">
-<input id="autor" placeholder="Autor ou criador" value="Moira Walley-Beckett">
-<input id="temporadas" type="number" placeholder="Temporadas" value="3">
-<input id="ano" type="number" placeholder="Ano de criação" value="2017">
-<input id="personagens" placeholder="3 principais personagens"
-value="Anne, Gilbert e Diana">
+Streaming:<br>
+<input type="text" value="Netflix"><br><br>
 
-<br>
+Autor ou criador:<br>
+<input type="text" value="Moira Walley-Beckett"><br><br>
 
-<button onclick="salvar()">Salvar</button>
-<button onclick="limpar()">Limpar</button>
-<button onclick="editar()">Editar</button>
-<button onclick="consultar()">Consultar</button>
+Quantidade de temporadas:<br>
+<input type="number" value="3"><br><br>
 
-<p id="msg"></p>
+Ano de criação:<br>
+<input type="number" value="2017"><br><br>
 
-</div>
+Personagem 1:<br>
+<input type="text" value="Anne Shirley"><br><br>
 
-<script>
+Personagem 2:<br>
+<input type="text" value="Gilbert Blythe"><br><br>
 
-function salvar() {
-    localStorage.setItem("serie", document.getElementById("nome").value);
-    localStorage.setItem("streaming", document.getElementById("streaming").value);
-    localStorage.setItem("autor", document.getElementById("autor").value);
-    localStorage.setItem("temporadas", document.getElementById("temporadas").value);
-    localStorage.setItem("ano", document.getElementById("ano").value);
-    localStorage.setItem("personagens", document.getElementById("personagens").value);
+Personagem 3:<br>
+<input type="text" value="Diana Barry"><br><br>
 
-    document.getElementById("msg").innerHTML = "Série salva!";
-}
-
-function limpar() {
-    document.querySelectorAll("input").forEach(x => x.value = "");
-    document.getElementById("msg").innerHTML = "Campos limpos!";
-}
-
-function consultar() {
-    document.getElementById("nome").value = localStorage.getItem("serie") || "";
-    document.getElementById("streaming").value = localStorage.getItem("streaming") || "";
-    document.getElementById("autor").value = localStorage.getItem("autor") || "";
-    document.getElementById("temporadas").value = localStorage.getItem("temporadas") || "";
-    document.getElementById("ano").value = localStorage.getItem("ano") || "";
-    document.getElementById("personagens").value = localStorage.getItem("personagens") || "";
-}
-
-function editar() {
-    salvar();
-    document.getElementById("msg").innerHTML = "Série editada! ";
-}
-
-</script>
+<button>Salvar</button>
+<button>Limpar</button>
+<button>Editar</button>
+<button>Consultar</button>
 
 </body>
 </html>
