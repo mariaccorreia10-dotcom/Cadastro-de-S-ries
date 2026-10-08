@@ -1,72 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>Cadastro de Séries</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #dcebd8;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .caixa {
+            background: #fffaf0;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px #999;
+        }
+
+        h1 {
+            color: #8b4a62;
+        }
+
+        p {
+            color: #667b55;
+            font-style: italic;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 7px;
+            border: 1px solid #b58b9a;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            background: #8b4a62;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #667b55;
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Cadastro de Séries</h1>
+<div class="caixa">
 
-<form>
-    Nome da série:
-    <input type="text" id="nome" value="Anne with an E"><br><br>
+    <h1>Cadastro de Séries</h1>
+    <p>“Grandes coisas começam com pequenos sonhos.”</p>
 
-    Streaming:
-    <input type="text" id="streaming" value="Netflix"><br><br>
+    <input type="text" placeholder="Nome da série">
+    <input type="text" placeholder="Streaming">
+    <input type="text" placeholder="Autor ou criador">
+    <input type="number" placeholder="Quantidade de temporadas">
+    <input type="number" placeholder="Ano de criação">
+    <input type="text" placeholder="Três principais personagens">
 
-    Autor ou criador:
-    <input type="text" id="autor" value="Moira Walley-Beckett"><br><br>
+    <br>
 
-    Quantidade de temporadas:
-    <input type="number" id="temporadas" value="3"><br><br>
+    <button>Salvar</button>
+    <button>Limpar</button>
+    <button>Editar</button>
+    <button>Consultar</button>
 
-    Ano de criação:
-    <input type="number" id="ano" value="2017"><br><br>
-
-    Três principais personagens:
-    <input type="text" id="personagens" value="Anne, Gilbert e Diana"><br><br>
-
-    <button type="button" onclick="salvar()">Salvar</button>
-    <button type="button" onclick="limpar()">Limpar</button>
-    <button type="button" onclick="editar()">Editar</button>
-    <button type="button" onclick="consultar()">Consultar</button>
-</form>
-
-<p id="mensagem"></p>
-
-<script>
-function salvar() {
-    localStorage.setItem("nome", document.getElementById("nome").value);
-    localStorage.setItem("streaming", document.getElementById("streaming").value);
-    localStorage.setItem("autor", document.getElementById("autor").value);
-    localStorage.setItem("temporadas", document.getElementById("temporadas").value);
-    localStorage.setItem("ano", document.getElementById("ano").value);
-    localStorage.setItem("personagens", document.getElementById("personagens").value);
-
-    document.getElementById("mensagem").innerHTML = "Série salva com sucesso!";
-}
-
-function limpar() {
-    document.querySelector("form").reset();
-    document.getElementById("mensagem").innerHTML = "";
-}
-
-function consultar() {
-    document.getElementById("nome").value = localStorage.getItem("nome") || "";
-    document.getElementById("streaming").value = localStorage.getItem("streaming") || "";
-    document.getElementById("autor").value = localStorage.getItem("autor") || "";
-    document.getElementById("temporadas").value = localStorage.getItem("temporadas") || "";
-    document.getElementById("ano").value = localStorage.getItem("ano") || "";
-    document.getElementById("personagens").value = localStorage.getItem("personagens") || "";
-
-    document.getElementById("mensagem").innerHTML = "Consulta realizada!";
-}
-
-function editar() {
-    salvar();
-    document.getElementById("mensagem").innerHTML = "Série editada com sucesso!";
-}
-</script>
+</div>
 
 </body>
 </html>
